@@ -14,7 +14,7 @@ func commandCatch(cfg *config, args ...string) error {
 	name := args[0]
 	pokemon, err := cfg.pokeapiClient.GetPokemon(name)
 	if err != nil {
-		return err
+		return errors.New("you must provide a valid pokemon name")
 	}
 
 	res := rand.Intn(pokemon.BaseExperience)
